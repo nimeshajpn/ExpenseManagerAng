@@ -1,11 +1,11 @@
 export class ModelExpense {
 
-Amount:number | undefined;
+    Amount?: number;
 Category:string | undefined;
 Type:string | undefined;
 Date:Date | undefined;
 
 
 
-
+ 
 }
