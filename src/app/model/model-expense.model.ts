@@ -1,9 +1,9 @@
-export class ModelExpense {
+export interface ModelExpense {
 
-    Amount?: number;
-Category:string | undefined;
-Type:string | undefined;
-Date:Date | undefined;
+Amount?: number;
+Category:string;
+Type:string;
+Date:Date;
 
 
 

@@ -4,96 +4,23 @@
    <Div  >
     <div class=" bg-secondary jumbotron text-center"  >
  
-    <h1 class="text-light">Welcome</h1>
+    <h1 class="text-light  text-left"> <span style="font-size:70px">Welcome</span> Expense Manager</h1>
      
     </div>
 
-<div class=" container align-items-center">
-    <Div class="row  text-center " style="padding:5px 15px 5px 15px ;">
-      <Div class="col-5 bg-primary ">
-        <h1 class="text-light">Form</h1>
-      
-
-      </Div>
-      <Div class="col-7 bg-secondary">
-
-        <h1 class="text-light">List</h1>
-     
-      </Div>
-    </Div>
-    <div class="row " style="padding:0px 15px 15px 15px ;" >
-
-      <div class="bg-success col-5 " style="padding-top:15px ;">
 
 
-        <div class="container">
-   
-          <form>
-            <div class="form-group">
-              <label for="Amountt">Amount:</label>
-              <input type="text" name="Amount" #Amount="ngModel" [(ngModel)]="HomeService.Data.Amount"  class="form-control" id="Amount" placeholder="Enter Amount" name="Amount">
-            </div>
-            <div class="form-group">
-              <label for="Date">Date:</label>
-              <input type="text" class="form-control" id="Date" placeholder="Enter Date" name="Date">
-            </div>
-            <div class="mb-3">
-
-              <label>Category:</label>
-             <select class="form-control" name="Category">
-      
-                 <option>Food</option>
-                 <option>Clothing</option>
-                 <option>Fruits</option>
-                 <option>Shopping</option>
-                 <option>Transport</option>
-                 <option>Home</option>
-                 <option>Pet</option>
-                 <option>Others</option>
-      
-      
-      
-             </select>
-          </div>
-          <div class="mb-3">
-
-            <label>Type:</label>
-           <select class="form-control" name="Category">
-    
-               <option>Income</option>
-               <option>Expense</option>
-              
-    
-    
-    
-           </select>
-        </div>
-    <div class="align-items-sm-center">
-      <button type="submit" class="btn btn-default bg-primary  " style="margin-bottom:20px ;">Submit</button>
-    </div>
-           
-          </form>
-        </div>
-        
-
-
-        
-
-      </div>
-      <div class="container bg-warning col-7">
-
-       <div>
-
-        <div class="container p-3  w-100" style=" background-color:mediumvioletred" >
+        <div class="container-fluid p-lg-3 align-content-center  w-100" style=" background-color:rgb(197, 192, 195)" >
      
 
 
-          <table class="container table table-bordered border-dark w-75">
-                <thead class="bg-info">
+          <table class=" container table table-bordered border-dark w-95">
+                <thead class=" w-100 text-center"  style=" background-color:rgb(120, 112, 113)" >
                     <tr>
                         <th class="text-white">Category</th>
                         <th class="text-white">Amount</th>
                         <th class="text-white">Type</th>
+                        <th class="text-white">Action</th>
                        
                     </tr>
                     
@@ -104,9 +31,10 @@
                     
                  
                     <tr>
-                        <td>@obj.Category</td>
-                        <td>@obj.Amount</td>
-                        <td>@obj.Type</td>
+                        <td>Category</td>
+                        <td>Amount</td>
+                        <td>Type</td>
+                        <td>Action</td>
                         
                     </tr>
                     
@@ -119,17 +47,6 @@
     
         </div>
 
-       </div>
-     
-      </div>
-
-    </div>
-  </div>
-   </Div>
-    
- 
-
-</div>
 
 
 
