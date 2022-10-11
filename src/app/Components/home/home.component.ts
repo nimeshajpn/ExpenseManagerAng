@@ -10,10 +10,12 @@ NgForm
 })
 export class HomeComponent implements OnInit {
 
+   public  
+
+
   constructor(public HomeService:ExpenseServiceService)
    { 
-      HomeService.Data?.Amount
-
+    
    }
 
   ngOnInit(): void {
