@@ -1,6 +1,6 @@
 export interface ModelExpense {
 
-Amount?: number;
+Amount: number;
 Category:string;
 Type:string;
 Date:Date;

@@ -8,6 +8,8 @@ import { FormsModule} from '@angular/forms';
 import { AddComponent } from './Components/add/add.component';
 import { ViewComponent } from './Components/view/view.component'
 
+import { HttpClient, HttpClientModule} from "@angular/common/http"
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +20,8 @@ import { ViewComponent } from './Components/view/view.component'
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
