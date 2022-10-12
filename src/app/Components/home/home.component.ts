@@ -1,6 +1,8 @@
+import { ModelExpense } from './../../model/model-expense.model';
 import { ExpenseServiceService } from './../../service/expense-service.service';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Observable } from 'rxjs';
 
 NgForm
 @Component({
@@ -10,7 +12,8 @@ NgForm
 })
 export class HomeComponent implements OnInit {
 
-  
+  public dataSet:ModelExpense[]= [];
+  public errorMsg:string | null= null;
 
 
   constructor(public HomeService:ExpenseServiceService)
@@ -19,6 +22,27 @@ export class HomeComponent implements OnInit {
    }
 
   ngOnInit(): void {
+
+
+ this.HomeService.getAll().subscribe((data) => {
+
+  this.dataSet=data;
+
+
+
+ },(error) => {
+    this.errorMsg=error.message;
+    if(this.errorMsg!=null)
+    {
+
+      console.log(this.errorMsg);
+    }
+   
+
+ })
+
   }
+
+
 
 }

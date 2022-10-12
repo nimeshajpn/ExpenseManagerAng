@@ -1,53 +1,51 @@
-<div class="container-fluid" > 
-
-
-   <Div  >
-    <div class=" bg-secondary jumbotron text-center"  >
- 
-    <h1 class="text-light  text-left"> <span style="font-size:70px">Welcome</span> Expense Manager</h1>
-     
-    </div>
+<div class="container-fluid">
 
 
 
-        <div class="container-fluid p-lg-3 align-content-center  w-100" style=" background-color:rgb(197, 192, 195)" >
-     
+    <Div>
+        <div class=" bg-secondary jumbotron text-center">
+
+            <h1 class="text-light  text-left"> <span style="font-size:70px">Welcome</span> Expense Manager</h1>
+
+        </div>
 
 
-          <table class=" container table table-bordered border-dark w-95">
-                <thead class=" w-100 text-center"  style=" background-color:rgb(120, 112, 113)" >
+
+        <div class="container-fluid p-lg-3 align-content-center  w-100" style=" background-color:rgb(197, 192, 195)">
+
+
+
+            <table  class=" container table table-bordered border-dark w-95">
+                <thead  class=" w-100 text-center" style="  background-color:rgb(120, 112, 113)">
                     <tr>
                         <th class="text-white">Category</th>
                         <th class="text-white">Amount</th>
                         <th class="text-white">Type</th>
                         <th class="text-white">Action</th>
-                       
+
                     </tr>
-                    
-    
-    
+
+
+
                 </thead>
-                <tbody class="bg-light">
-                    
+                <tbody  *ngFor="let Data of dataSet" class="bg-light">
+
+                
+                    <tr >
+
                  
-                    <tr>
-                        <td>Category</td>
-                        <td>Amount</td>
+                        <td class="font-weight-bold">{{Data.Category | json}}</td>
+                        <td>{{Data.Amount}}</td>
                         <td>Type</td>
                         <td>Action</td>
-                        
+
                     </tr>
-                    
+
                 </tbody>
-    
+
             </table>
-    
-    
-    
-    
+
+
+
+
         </div>
-
-
-
-
-    
