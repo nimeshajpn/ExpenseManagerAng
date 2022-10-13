@@ -1,4 +1,7 @@
+import { ModelExpense } from './../../model/model-expense.model';
 import { Component, OnInit } from '@angular/core';
+import { ExpenseServiceService } from 'src/app/service/expense-service.service';
+import { DATE_PIPE_DEFAULT_TIMEZONE } from '@angular/common';
 
 @Component({
   selector: 'app-add',
@@ -7,9 +10,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddComponent implements OnInit {
 
-  constructor() { }
+  public  data:ModelExpense= {} as ModelExpense;
+
+
+  constructor(public Service:ExpenseServiceService) {
+
+    this.data.Date=new Date();
+
+   }
 
   ngOnInit(): void {
+
+   let result:any = this.Service.createExpense(this.data);
+   
+
+  
+
+  
+   
+
   }
+
+ 
 
 }

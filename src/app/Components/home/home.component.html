@@ -6,7 +6,11 @@
         <div class=" bg-secondary jumbotron text-center">
 
             <h1 class="text-light  text-left"> <span style="font-size:70px">Welcome</span> Expense Manager</h1>
-
+           <div class="text-lg-right">
+            <button class="btn  btn-lg ml-3  font-weight-bold "
+             style=" background-color:  azure ; color: #6C757D;" 
+             routerLink="/Add">ADD</button>
+           </div>
         </div>
 
 
@@ -15,8 +19,8 @@
 
 
 
-            <table  class=" container table table-bordered border-dark w-95">
-                <thead  class=" w-100 text-center" style="  background-color:rgb(120, 112, 113)">
+            <table class=" container table table-bordered border-dark w-95">
+                <thead class=" w-100 text-center" style="  background-color:rgb(120, 112, 113)">
                     <tr>
                         <th class="text-white">Category</th>
                         <th class="text-white">Amount</th>
@@ -28,16 +32,29 @@
 
 
                 </thead>
-                <tbody  *ngFor="let Data of dataSet" class="bg-light">
+                <tbody class="bg-light">
 
-                
-                    <tr >
 
-                 
-                        <td class="font-weight-bold">{{Data.Category | json}}</td>
+                    <tr *ngFor="public let Data of dataSet">
+
+
+                        <td class="font-weight-bold">{{Data.Category}}</td>
                         <td>{{Data.Amount}}</td>
                         <td>Type</td>
-                        <td>Action</td>
+                        <td style="width: 350px; ;" class="">
+                            <Div class=" container row align-item-center  ">
+                                <div >
+                                    <button class="btn btn-info ml-3">Update</button>
+                                </div>
+                                <div>
+
+                                    <button class="btn btn-danger ml-3">Delete</button>
+
+                                </div>
+
+                            </Div>
+
+                        </td>
 
                     </tr>
 

@@ -13,7 +13,7 @@ NgForm
 export class HomeComponent implements OnInit {
 
   public dataSet:ModelExpense[]= [];
-  public errorMsg:string | null= null;
+  private errorMsg:string | null= null;
 
 
   constructor(public HomeService:ExpenseServiceService)

@@ -1,1 +1,69 @@
-<p>add works!</p>
+<div class="container-fluid">
+
+
+
+    <Div>
+        <div class=" bg-secondary jumbotron text-center">
+
+            <h1 class="text-light  text-left"> <span style="font-size:70px">Welcome</span> Expense Manager</h1>
+            <div class="text-lg-right">
+                <button class="btn  btn-lg ml-3  font-weight-bold " style=" background-color:  azure ; color: #6C757D;"
+                    routerLink="/Add">ADD</button>
+            </div>
+        </div>
+
+
+
+        <div class="container-fluid p-lg-3   w-50" style=" background-color:rgb(197, 192, 195)">
+
+
+
+            <div class=" container  form-group p-3 ">
+                    <form>
+                <div>
+                    <p class="text-center form-text font-weight-bold">Amount</p>
+                    <input type="text" class="form-control" name="Amount" [(ngModel)]="data.Amount">
+                </div>
+
+                <div>
+                    <p class="text-center form-text font-weight-bold mt-3">Category</p>
+                    <select class="form-control" name="Category" [(ngModel)]="data.Category">
+
+                    <option>Food</option>
+                    <option>Clothing</option>
+                    <option>Fruits</option>
+                    <option>Shopping</option>
+                    <option>Transport</option>
+                    <option>Home</option>
+                    <option>Pet</option>
+                    <option>Others</option>
+
+
+
+                    </select>
+                </div>
+                <div>
+                    <p class="text-center form-text font-weight-bold mt-3">Type</p>
+                    <select class="form-control" placeholder="Type" name="Type" [(ngModel)]="data.Type">
+
+                        <option>Income</option>
+                        <option>Expense</option>
+                   
+
+
+                    </select>
+                </div>
+                <div>
+                    <p class="text-center form-text font-weight-bold mt-3">Date</p>
+                    <input type="text" class="form-control" name="Date" [(ngModel)]="data.Date">
+                </div>
+                <div class="mt-4 text-center">
+                    <button class="btn btn-primary w-75 font-weight-bold"  type="submit" style="height:50px; "   >Submit</button>
+                </div>
+            </form>
+            </div>
+
+
+
+        </div>
+        <pre>{{data | json}}</pre>
