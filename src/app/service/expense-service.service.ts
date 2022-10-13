@@ -1,7 +1,7 @@
 import { NgIfContext } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { catchError, Observable } from 'rxjs';
 import { ModelExpense } from '../model/model-expense.model';
 
 @Injectable({
@@ -10,6 +10,7 @@ import { ModelExpense } from '../model/model-expense.model';
 export class ExpenseServiceService {
  
    private url:string='https://localhost:7178/Expense';
+    public er:any;
 
   constructor(private httpClient:HttpClient) {
 
@@ -40,9 +41,16 @@ return this.httpClient.get<ModelExpense>(data).pipe();
 
    public createExpense(data:ModelExpense):any{
 
-    let result = this.httpClient.post(this.url,data).pipe();
+    try{
+      return this.httpClient.post<ModelExpense>(this.url, data).pipe(catchError(this.findError));
 
-      return result;
+    }catch(exception )
+    {
+console.log("error");
+
+    }
+     
+     
    }
 
    public UpdateExpense(data:ModelExpense , id:string):any{
@@ -64,6 +72,16 @@ return this.httpClient.get<ModelExpense>(data).pipe();
         return result;
      }
 
+     public findError(error:HttpErrorResponse):any{
+
+      this.er=error.error.message;
+
+
+      
+    
+     }
+
+     
 
 
 }

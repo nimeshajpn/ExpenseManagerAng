@@ -12,7 +12,7 @@ export class AddComponent implements OnInit {
 
   public  data:ModelExpense= {} as ModelExpense;
 
-
+  public errorResult:any;
   constructor(public Service:ExpenseServiceService) {
 
     this.data.Date=new Date();
@@ -21,7 +21,7 @@ export class AddComponent implements OnInit {
 
   ngOnInit(): void {
 
-   let result:any = this.Service.createExpense(this.data);
+   
    
 
   
@@ -31,6 +31,11 @@ export class AddComponent implements OnInit {
 
   }
 
- 
+ public btnClick():void
+ {
+  let result:any = this.Service.createExpense(this.data);
+  this.errorResult=result;
+
+ }
 
 }
