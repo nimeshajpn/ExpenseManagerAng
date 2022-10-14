@@ -39,16 +39,12 @@ return this.httpClient.get<ModelExpense>(data).pipe();
 
 
 
-   public createExpense(data:ModelExpense):any{
+   public createExpense(data:any):any{
 
-    try{
-      return this.httpClient.post<ModelExpense>(this.url, data).pipe(catchError(this.findError));
+    
+      return this.httpClient.post<any>("https://localhost:7178/Expense", data);
 
-    }catch(exception )
-    {
-console.log("error");
-
-    }
+  
      
      
    }

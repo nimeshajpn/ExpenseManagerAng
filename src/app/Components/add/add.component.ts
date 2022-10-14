@@ -15,7 +15,7 @@ export class AddComponent implements OnInit {
   public errorResult:any;
   constructor(public Service:ExpenseServiceService) {
 
-    this.data.Date=new Date();
+   // this.data.Date=new Date();
 
    }
 
