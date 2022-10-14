@@ -1,4 +1,4 @@
-import { NgIfContext } from '@angular/common';
+import { JsonPipe, NgIfContext } from '@angular/common';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable } from 'rxjs';
@@ -8,76 +8,88 @@ import { ModelExpense } from '../model/model-expense.model';
   providedIn: 'root'
 })
 export class ExpenseServiceService {
- 
-   private url:string='https://localhost:7178/Expense';
-    public er:any;
 
-  constructor(private httpClient:HttpClient) {
-
-
-
-   }
-
-   public getAll():Observable<ModelExpense[]>
-   {
-
-      //  let data:string = '${this.url}/expense';
-      let data:string = 'https://localhost:7178/Expense';
-
-      return this.httpClient.get<ModelExpense[]>(data).pipe();
-   }
-
-
-   public getExpense(id:string):Observable<ModelExpense>{
+  private url: string = 'https://localhost:7178/Expense';
+  public er: any;
+  public Error: any;
+  constructor(private httpClient: HttpClient) {
 
 
 
-       let data:string= this.url+'/'+id;
+  }
 
-return this.httpClient.get<ModelExpense>(data).pipe();
-   }
+  public getAll(): Observable<ModelExpense[]> {
 
-
-
-   public createExpense(data:any):any{
-
+    //  let data:string = '${this.url}/expense';
+    let data: string = 'https://localhost:7178/Expense';
     
-      return this.httpClient.post<any>("https://localhost:7178/Expense", data);
-
-  
-     
-     
-   }
-
-   public UpdateExpense(data:ModelExpense , id:string):any{
-
-      let updateUrl:string= this.url+'/'+id;
-      
-
-      let result = this.httpClient.put(updateUrl,data).pipe();
-  
-        return result;
-     }
-
-     public Delete(id:string):any{
-
-      let deleteUrl:string= this.url+'/'+id;
-
-      let result = this.httpClient.delete(deleteUrl).pipe();
-  
-        return result;
-     }
-
-     public findError(error:HttpErrorResponse):any{
-
-      this.er=error.error.message;
+    return this.httpClient.get<ModelExpense[]>(data).pipe();
+  }
 
 
-      
-    
-     }
+  public getExpense(id: string): Observable<ModelExpense> {
 
-     
+
+
+    let data: string = this.url + '/' + id;
+
+    return this.httpClient.get<ModelExpense>(data).pipe();
+  }
+
+
+
+  public createExpense(data: any): any 
+  {
+
+
+    let result = this.httpClient.post<any>("https://localhost:7178/Expense",data).pipe(catchError(this.Error));
+
+
+      if(this.Error!=null)
+      {
+
+        return this.Error;
+
+      }
+      else
+      {
+
+
+          return result;
+
+      }
+
+  }
+
+  public UpdateExpense(data: ModelExpense, id: string): any {
+
+    let updateUrl: string = this.url + '/' + id;
+
+
+    let result = this.httpClient.put(updateUrl, data).pipe();
+
+    return result;
+  }
+
+  public Delete(id: string): any {
+
+    let deleteUrl: string = this.url + '/' + id;
+
+    let result = this.httpClient.delete(deleteUrl).pipe();
+
+    return result;
+  }
+
+  public findError(error: HttpErrorResponse): any {
+
+    this.er = error.error.message;
+
+
+
+
+  }
+
+
 
 
 }

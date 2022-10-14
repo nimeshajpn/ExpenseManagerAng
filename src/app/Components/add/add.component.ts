@@ -34,8 +34,7 @@ export class AddComponent implements OnInit {
  public btnClick():void
  {
   let result:any = this.Service.createExpense(this.data);
-  this.errorResult=result;
-
+  console.log(result)
  }
 
 }
