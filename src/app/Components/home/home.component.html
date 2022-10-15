@@ -6,25 +6,25 @@
         <div class=" bg-secondary jumbotron text-center">
 
             <h1 class="text-light  text-left"> <span style="font-size:70px">Welcome</span> Expense Manager</h1>
-           <div class="text-lg-right">
-            <button class="btn  btn-lg ml-3  font-weight-bold "
-             style=" background-color:  azure ; color: #6C757D;" 
-             routerLink="/Add">ADD</button>
-           </div>
+            <div class="text-lg-right">
+                <button class="btn  btn-lg ml-3  font-weight-bold " style=" background-color:  azure ; color: #6C757D;"
+                    routerLink="/Add">ADD</button>
+            </div>
         </div>
 
 
 
         <div class="container-fluid p-lg-3 align-content-center  w-100" style=" background-color:rgb(197, 192, 195)">
 
+            <pre>{{ dateOnly }}</pre>
 
-
-            <table class=" container table table-bordered border-dark w-95">
+            <table class=" container table table-bordered border-dark w-95 table-striped">
                 <thead class=" w-100 text-center" style="  background-color:rgb(120, 112, 113)">
                     <tr>
                         <th class="text-white">Category</th>
                         <th class="text-white">Amount</th>
                         <th class="text-white">Type</th>
+                        <th class="text-white">Date</th>
                         <th class="text-white">Action</th>
 
                     </tr>
@@ -32,24 +32,28 @@
 
 
                 </thead>
-                <tbody class="bg-light">
+                <tbody *ngFor="let data of  dataSet" class="bg-light">
 
 
-                    <tr *ngFor="public let Data of dataSet">
+                    <tr *ngIf="data.date  !=date.date">
 
 
-                        <td class="font-weight-bold">{{Data.Category}}</td>
-                        <td>ww</td>
-                        <td>Type</td>
+                        <td class="font-weight-bold " name="Category">{{data.category}}
+
+                        </td>
+                        <td><span class="fw-bold">{{data.amount}}</span></td>
+                        <td>{{data.type}}</td>
+                        <td>{{data.date}}</td>
+
                         <td style="width: 350px; ;" class="">
                             <Div class=" container row align-item-center  ">
-                                <div >
-                                    <button class="btn btn-info ml-3">Update</button>
+                                <div>
+                                    <button class="btn btn-info ml-3" 
+                                    
+                                    routerLink="/Update/{{data.id}}">Update</button>
                                 </div>
                                 <div>
-
-                                    <button class="btn btn-danger ml-3">Delete</button>
-
+                                    <button class="btn btn-danger ml-3" (click)="btnDelete(data.id)">Delete</button>
                                 </div>
 
                             </Div>
@@ -63,6 +67,6 @@
             </table>
 
 
-
+        
 
         </div>

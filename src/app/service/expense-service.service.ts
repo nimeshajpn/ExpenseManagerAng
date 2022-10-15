@@ -33,7 +33,7 @@ export class ExpenseServiceService {
 
     let data: string = this.url + '/' + id;
 
-    return this.httpClient.get<ModelExpense>(data).pipe();
+    return this.httpClient.get<ModelExpense>(data).pipe(catchError(this.handleError));
   }
 
 
@@ -76,12 +76,12 @@ export class ExpenseServiceService {
     let updateUrl: string = this.url + '/' + id;
 
 
-    let result = this.httpClient.put(updateUrl, data).pipe();
+    let result = this.httpClient.put(updateUrl, data).pipe(catchError(this.handleError));
 
     return result;
   }
 
-  public Delete(id: string): any {
+  public Delete(id: number): any {
 
     let deleteUrl: string = this.url + '/' + id;
 

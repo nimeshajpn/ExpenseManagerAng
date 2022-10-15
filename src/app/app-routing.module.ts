@@ -1,3 +1,4 @@
+import { UpdateComponent } from './Components/update/update.component';
 import { HomeComponent } from './Components/home/home.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -10,6 +11,7 @@ const routes: Routes = [
   { path: 'Home', component : HomeComponent},
   { path: 'Add', component : AddComponent},
   { path: 'View', component : ViewComponent},
+  { path: 'Update/:id', component : UpdateComponent},
 
 ];
 

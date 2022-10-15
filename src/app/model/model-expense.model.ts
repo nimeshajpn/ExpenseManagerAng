@@ -1,10 +1,10 @@
 export interface ModelExpense {
 
 id?:any;
-Amount: number;
-Category:string;
-Type:string;
-Date:Date;
+amount: number;
+category:string;
+type:string;
+date:Date;
 
 
 

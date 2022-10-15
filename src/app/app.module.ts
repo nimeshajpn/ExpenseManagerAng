@@ -8,14 +8,16 @@ import { FormsModule} from '@angular/forms';
 import { AddComponent } from './Components/add/add.component';
 import { ViewComponent } from './Components/view/view.component'
 
-import { HttpClient, HttpClientModule} from "@angular/common/http"
+import { HttpClient, HttpClientModule} from "@angular/common/http";
+import { UpdateComponent } from './Components/update/update.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     AddComponent,
-    ViewComponent
+    ViewComponent,
+    UpdateComponent
   ],
   imports: [
     BrowserModule,

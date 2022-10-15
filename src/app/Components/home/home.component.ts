@@ -3,6 +3,9 @@ import { ExpenseServiceService } from './../../service/expense-service.service';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Observable } from 'rxjs';
+import { Time } from '@angular/common';
+import { Router } from '@angular/router';
+
 
 NgForm
 @Component({
@@ -12,11 +15,16 @@ NgForm
 })
 export class HomeComponent implements OnInit {
 
-  public dataSet:ModelExpense[]= [];
+  dataSet:any= '';
   private errorMsg:string | null= null;
+  date:any= Date.now();
+  dDate:Date= new Date;
+ dateOnly:any=this.dDate.getDate();
 
-
-  constructor(public HomeService:ExpenseServiceService)
+  constructor(public HomeService:ExpenseServiceService,
+    private route:Router
+    
+    )
    { 
     
    }
@@ -24,8 +32,9 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
 
 
- this.HomeService.getAll().subscribe((data) => {
-
+ this.HomeService.getAll().subscribe((data) => 
+ {
+  console.log(data)
   this.dataSet=data;
 
 
@@ -40,6 +49,22 @@ export class HomeComponent implements OnInit {
    
 
  })
+
+  }
+
+ 
+  public btnDelete(id:number){
+
+this.HomeService.Delete(id).subscribe(
+  (data:any)=>{
+
+
+    window.location.reload();
+
+ });
+
+
+
 
   }
 
