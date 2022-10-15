@@ -2,6 +2,7 @@ import { ModelExpense } from './../../model/model-expense.model';
 import { Component, OnInit } from '@angular/core';
 import { ExpenseServiceService } from 'src/app/service/expense-service.service';
 import { DATE_PIPE_DEFAULT_TIMEZONE } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add',
@@ -12,8 +13,12 @@ export class AddComponent implements OnInit {
 
   public  data:ModelExpense= {} as ModelExpense;
 
-  public errorResult:any;
-  constructor(public Service:ExpenseServiceService) {
+  public errorMsg:string | null = '';
+  constructor(
+    public Service:ExpenseServiceService,
+    private  router:Router
+
+    ) {
 
    // this.data.Date=new Date();
 
@@ -33,8 +38,20 @@ export class AddComponent implements OnInit {
 
  public btnClick():void
  {
-  let result:any = this.Service.createExpense(this.data);
-  console.log(result)
+ this.Service.createExpense(this.data).subscribe(
+  (data:ModelExpense)=>{
+
+
+this.router.navigate(['/']).then();
+
+ },(error) => {
+
+this.errorMsg=error;
+console.log(this.errorMsg);
+
+ }
+ );
+  
  }
 
 }

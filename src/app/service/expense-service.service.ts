@@ -1,7 +1,7 @@
 import { JsonPipe, NgIfContext } from '@angular/common';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, Observable } from 'rxjs';
+import { catchError, Observable, throwError } from 'rxjs';
 import { ModelExpense } from '../model/model-expense.model';
 
 @Injectable({
@@ -38,26 +38,36 @@ export class ExpenseServiceService {
 
 
 
-  public createExpense(data: any): any 
+  public createExpense(data: ModelExpense): Observable<ModelExpense>
   {
 
 
-    let result = this.httpClient.post<any>("https://localhost:7178/Expense",data).pipe(catchError(this.Error));
+    return this.httpClient.post<ModelExpense>("https://localhost:7178/Expense",data).pipe(catchError(this.handleError));
 
 
-      if(this.Error!=null)
-      {
+     
+     
 
-        return this.Error;
+  }
 
-      }
-      else
-      {
+  public handleError(Error:HttpErrorResponse)
+  {
+
+  let errorMsg:string='';
+  if(Error.error instanceof ErrorEvent){
 
 
-          return result;
 
-      }
+    errorMsg='error : '+Error.error.message ;
+    
+  }else{
+
+   errorMsg='status error : '+Error.status + '/n Message' + Error.message;
+
+
+  }
+  
+    return throwError(errorMsg);
 
   }
 
