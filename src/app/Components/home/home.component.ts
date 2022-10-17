@@ -5,6 +5,7 @@ import { NgForm } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { Time } from '@angular/common';
 import { Router } from '@angular/router';
+import { identifierName } from '@angular/compiler';
 
 
 NgForm
@@ -19,7 +20,10 @@ export class HomeComponent implements OnInit {
   private errorMsg:string | null= null;
   date:any= Date.now();
   dDate:Date= new Date;
- dateOnly:any=this.dDate.getDate();
+  dateOnly:any=this.dDate.getDate();
+  Income:any=0;
+  Expense:any=0;
+  Total:any =0;
 
   constructor(public HomeService:ExpenseServiceService,
     private route:Router
@@ -37,6 +41,24 @@ export class HomeComponent implements OnInit {
   console.log(data)
   this.dataSet=data;
 
+ 
+  for(let i of data)
+  {
+
+    if(i.type=='Income')
+    {
+
+      this.Income=this.Income+i.amount;
+    }
+    else{
+
+      this.Expense=this.Expense+i.amount;
+
+    }
+
+
+  }
+  this.Total=this.Income-this.Expense;
 
 
  },(error) => {
@@ -68,6 +90,7 @@ this.HomeService.Delete(id).subscribe(
 
   }
 
-
+key:string='id';
+fe:boolean=false;
 
 }
