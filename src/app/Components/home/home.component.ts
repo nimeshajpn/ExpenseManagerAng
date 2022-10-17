@@ -17,7 +17,7 @@ NgForm
 export class HomeComponent implements OnInit {
 
   dataSet:any= '';
-  private errorMsg:string | null= null;
+   errorMsg:string | null= null;
   date:any= Date.now();
   dDate:Date= new Date;
   dateOnly:any=this.dDate.getDate();
