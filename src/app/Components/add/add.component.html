@@ -12,8 +12,19 @@
             </div>
         </div>
 
+
+        <div class="container " *ngIf="errorMsg!=null">
+            <app-view></app-view>
+            <p>{{errorMsg}}</p>
+        </div> 
+
+
+
+
+
+
 <div class=" col-12 " style="width: auto;">
-    <div class=" container col-12 col-md-6 " style=" background-color:rgb(197, 192, 195); padding: auto; width: auto; ;">
+    <div class="  container col-12 col-md-6 " style=" background-color:rgb(197, 192, 195); padding: auto; width: auto; ;">
 
 
 
@@ -68,6 +79,6 @@
     </div>
 </div>
 
-     
-        <pre>{{data | json}}</pre>
+
+      
        

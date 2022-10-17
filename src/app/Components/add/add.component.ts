@@ -21,6 +21,7 @@ export class AddComponent implements OnInit {
     ) {
 
    // this.data.Date=new Date();
+   this.errorMsg=null;
 
    }
 
