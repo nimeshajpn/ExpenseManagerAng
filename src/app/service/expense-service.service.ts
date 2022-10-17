@@ -67,7 +67,9 @@ export class ExpenseServiceService {
 
   }
   
+  alert('Error!! : '+errorMsg)
     return throwError(errorMsg);
+
 
   }
 

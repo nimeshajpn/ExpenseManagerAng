@@ -24,6 +24,7 @@ export class HomeComponent implements OnInit {
   Income:any=0;
   Expense:any=0;
   Total:any =0;
+  
 
   constructor(public HomeService:ExpenseServiceService,
     private route:Router

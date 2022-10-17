@@ -47,7 +47,9 @@ this.router.navigate(['/']).then();
  },(error) => {
 
 this.errorMsg=error;
-console.log(this.errorMsg);
+console.log('Error!!: '+this.errorMsg);
+alert('Error' +this.errorMsg);
+
 
  }
  );
