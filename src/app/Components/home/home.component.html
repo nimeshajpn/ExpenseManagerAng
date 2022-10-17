@@ -3,39 +3,41 @@
 
 
     <Div>
-        <div class="  jumbotron text-center mt-3" style=" background-color: #3F0071;" >
+        <div class=" container  jumbotron text-center mt-3 col-12 col-md-12" style=" background-color: #3F0071;">
 
             <h1 class="text-light  text-left"> <span style="font-size:70px">Welcome</span> to Expense Manager</h1>
-           <div class="row ">
-            <div class="text-lg-left col-6">
-                <h3 class="text-light"><span class="text-light">Total   = </span>{{Total}}</h3>
-                <h3 class="text-light"><span class="text-light">Income  = </span>{{Income}}</h3>
-                <h3 class="text-light"><span class="text-light">Expense = </span>{{Expense}}</h3>
+
+            <div class="row  m-auto">
+
+                <div class="text-left col-8 w-auto ">
+                    <h3 class="text-light"><span class="text-light">Total = </span>{{Total}}</h3>
+                    <h3 class="text-light"><span class="text-light">Income = </span>{{Income}}</h3>
+                    <h3 class="text-light"><span class="text-light">Expense = </span>{{Expense}}</h3>
+                </div>
+
+                <div class="text-lg-right col-4  ">
+                    <button class="btn  btn-lg ml-3  font-weight-bold "
+                        style=" background-color:  azure ; color: #3F0071;" routerLink="/Add">ADD
+                    </button>
+                </div>
             </div>
-            <div class="text-lg-right col-6">
-                <button class="btn  btn-lg ml-3  font-weight-bold " 
-                        style=" background-color:  azure ; color: #3F0071;"
-                        routerLink="/Add">ADD
-                </button>
-            </div>
-           </div>
-           
+
         </div>
 
 
 
-        <div class="container-fluid p-lg-3 align-content-center  w-100" style=" ">
+        <div class="container p-3 m-auto align-content-center bg-light" style=" ">
 
             <pre>{{ dateOnly }}</pre>
 
-            <table class=" container table table-bordered border-dark w-95 table-striped">
-                <thead class=" w-100 text-center" style="  background-color:#3F0071">
-                    <tr>
-                        <th class="  text-white">Category</th>
-                        <th class="text-white">Amount</th>
-                        <th class="text-white">Type</th>
-                        <th class="text-white">Date</th>
-                        <th class="text-white">Action</th>
+            <table class="  table table-bordered border-dark  table-striped ">
+                <thead class="  text-center" style="  background-color:#3F0071">
+                    <tr class=" col-12">
+                        <th class="col-2  text-white">Category</th>
+                        <th class="col-2 text-white">Amount</th>
+                        <th class="col-2 text-white">Type</th>
+                        <th class="col-3 text-white">Date</th>
+                        <th class="col-3 text-white">Action</th>
 
                     </tr>
 
@@ -45,7 +47,7 @@
                 <tbody *ngFor="let data of  dataSet " class="bg-light">
 
 
-                    <tr *ngIf="data.date  !=date.date">
+                    <tr>
 
 
                         <td class="font-weight-bold " name="Category">{{data.category}} </td>
@@ -54,12 +56,13 @@
                         <td>{{data.date}}</td>
 
                         <td style="width: 350px; ;" class="">
-                            <Div class="  container row align-items-lg-center  ">
-                                <div>
-                                    <button class="btn btn-info ml-3" routerLink="/Update/{{data.id}}">Update</button>
+                            <Div class=" row ">
+                                <div class="col-12 col-sm-6  text-center">
+                                    <button class="btn btn-info m-2" routerLink="/Update/{{data.id}}">Update</button>
                                 </div>
-                                <div>
-                                    <button class="btn btn-danger ml-3" (click)="btnDelete(data.id)">Delete</button>
+                               
+                                <div class="col-12  col-sm-6 text-center" >
+                                    <button class="btn btn-danger m-2" (click)="btnDelete(data.id)">Delete</button>
                                 </div>
                             </Div>
 
