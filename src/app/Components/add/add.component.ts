@@ -14,13 +14,28 @@ export class AddComponent implements OnInit {
   public  data:ModelExpense= {} as ModelExpense;
 
   public errorMsg:string | null = '';
+  errorName: any;
+
+  test:any;
+
+  amountNull:boolean | null= null;
+  descriptionNull:boolean | null= null;
+  categoryNull:boolean | null= null;
+  typeNull:boolean | null= null;
+  dateNull:boolean | null= null;
+
+
+
+
+
   constructor(
     public Service:ExpenseServiceService,
     private  router:Router
 
     ) {
 
-   // this.data.Date=new Date();
+
+  
    this.errorMsg=null;
 
    }
@@ -39,22 +54,59 @@ export class AddComponent implements OnInit {
 
  public btnClick():void
  {
- this.Service.createExpense(this.data).subscribe(
-  (data:ModelExpense)=>{
 
 
-this.router.navigate(['/']).then();
-
- },(error) => {
-
-this.errorMsg=error;
-console.log('Error!!: '+this.errorMsg);
-alert('Error' +this.errorMsg);
+  if(this.data.amount==null || this.data.category == null || this.data.type== null)
+  {
 
 
- }
- );
+    this.buttonClick();
+
+
+
+
+
+  }
+  else{
+
+   
+
+    this.Service.createExpense(this.data).subscribe(
+      (data:ModelExpense)=>{
+    
+    
+    this.router.navigate(['/']).then();
+    
+     },(error) => {
+    
+    this.errorMsg=error;
+    this.errorName=error.name;
+    console.log('Error!!: '+this.errorMsg);
+    
+    
+    
+     }
+     );
+
+
+  }
+
+
+ 
   
+ }
+
+ public buttonClick():void{
+
+  console.log("bt")
+  if(this.data.amount==null){this.amountNull=true}
+  if(this.data.description==null){this.descriptionNull=true}
+  if(this.data.category==null){this.categoryNull=true}
+  if(this.data.type==null){this.typeNull=true}
+  if(this.data.date==null){this.dateNull=true}
+
+
+
  }
 
 }

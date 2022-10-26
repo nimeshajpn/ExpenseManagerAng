@@ -3,7 +3,7 @@
 
 
     <Div>
-        <div class=" container  jumbotron text-center mt-3 col-12 col-md-12" style=" background-color: #3F0071;">
+        <div class=" container  jumbotron text-center mt-3 col-12 col-md-12 " style=" background-color: #3F0071;">
 
             <h1 class="text-light  text-left"> <span style="font-size:70px">Welcome</span> to Expense Manager</h1>
 
@@ -26,18 +26,19 @@
 
 
 
-        <div class="container p-3 m-auto align-content-center bg-light" >
+        <div class="container   p-3 m-auto align-content-center bg-light rounded" >
 
             <pre>{{ dateOnly }}</pre>
 
-            <table class="  col-12 table table-bordered border-dark  table-striped ">
+            <table class="  col-12  table table-bordered border-dark  table-striped ">
                 <thead class="  text-center" style="  background-color:#3F0071">
-                    <tr class=" col-12">
-                        <th class="col-2  text-white">Category</th>
-                        <th class="col-2 text-white">Amount</th>
+                    <tr class=" col-12 ">
+                        <th class="col-1  text-white">Category</th>
+                        <th class="col-1 text-white">Amount</th>
                         <th class="col-2 text-white">Type</th>
-                        <th class="col-3 text-white">Date</th>
-                        <th class="col-3 text-white">Action</th>
+                        <th class="col-2 text-white">Date</th>
+                        <th class=" col-3  text-white">Description</th>
+                        <th class="col-2 text-white">Action</th>
 
                     </tr>
 
@@ -53,16 +54,17 @@
                         <td class="font-weight-bold " name="Category">{{data.category}} </td>
                         <td><span class="fw-bold">{{data.amount}}</span></td>
                         <td>{{data.type}}</td>
-                        <td>{{data.date}}</td>
+                        <td>{{data.date | date }}</td>
+                        <td>{{data.description}}</td>
 
                         <td style="width: 350px; ;" class="">
-                            <Div class=" row ">
+                            <Div class=" row  p-2" >
                                 <div class="col-12 col-sm-6  text-center">
-                                    <button class="btn btn-info m-2" routerLink="/Update/{{data.id}}">Update</button>
+                                    <button class="btn btn-info " routerLink="/Update/{{data.id}}">Update</button>
                                 </div>
 
                                 <div class="col-12  col-sm-6 text-center">
-                                    <button class="btn btn-danger m-2" (click)="btnDelete(data.id)">Delete</button>
+                                    <button class="btn btn-danger " (click)="btnDelete(data.id)">Delete</button>
                                 </div>
                             </Div>
 
@@ -74,9 +76,11 @@
 
             </table>
 
-            <div *ngIf="errorMsg!=null">
-                <app-view></app-view>
-                <p>{{errorMsg}}</p>
+            <div *ngIf="errorMsg!=null" class="alert-primary">
+               
+                <h1>{{errorName}}</h1>
+                <p class="text-bold">Error Message </p>
+                <p><i> Reason :  </i>{{errorMsg}}</p>
             </div>
                 
 

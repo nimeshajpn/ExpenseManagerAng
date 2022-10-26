@@ -18,6 +18,7 @@ export class HomeComponent implements OnInit {
 
   dataSet:any= '';
    errorMsg:string | null= null;
+   errorName:string | null= null;
   date:any= Date.now();
   dDate:Date= new Date;
   dateOnly:any=this.dDate.getDate();
@@ -42,6 +43,8 @@ export class HomeComponent implements OnInit {
   console.log(data)
   this.dataSet=data;
 
+
+
  
   for(let i of data)
   {
@@ -64,10 +67,12 @@ export class HomeComponent implements OnInit {
 
  },(error) => {
     this.errorMsg=error.message;
+    this.errorName=error.name;
     if(this.errorMsg!=null)
     {
 
       console.log(this.errorMsg);
+      console.log(this.errorName);
     }
    
 
@@ -90,6 +95,11 @@ this.HomeService.Delete(id).subscribe(
 
 
   }
+
+  
+
+
+  
 
 key:string='id';
 fe:boolean=false;

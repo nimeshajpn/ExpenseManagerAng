@@ -20,7 +20,7 @@ export class ExpenseServiceService {
 
   public getAll(): Observable<ModelExpense[]> {
 
-    //  let data:string = '${this.url}/expense';
+   
     let data: string = 'https://localhost:7178/Expense';
     
     return this.httpClient.get<ModelExpense[]>(data).pipe();
@@ -67,7 +67,7 @@ export class ExpenseServiceService {
 
   }
   
-  alert('Error!! : '+errorMsg)
+ 
     return throwError(errorMsg);
 
 

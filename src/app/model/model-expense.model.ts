@@ -5,6 +5,7 @@ amount: number;
 category:string;
 type:string;
 date:Date;
+description:string;
 
 
 

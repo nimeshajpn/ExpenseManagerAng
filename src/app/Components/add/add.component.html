@@ -13,72 +13,103 @@
         </div>
 
 
-        <div class="container " *ngIf="errorMsg!=null">
-            <app-view></app-view>
-            <p>{{errorMsg}}</p>
-        </div> 
 
 
 
 
 
 
-<div class=" col-12 " style="width: auto;">
-    <div class="  container col-12 col-md-6 " style=" background-color:rgb(197, 192, 195); padding: auto; width: auto; ;">
+        <div class=" col-12 " style="width: auto;">
+            <div class="  container col-12 col-md-6 "
+                style=" background-color:rgb(197, 192, 195); padding: auto; width: auto; ;">
 
 
 
-        <div class=" container-fluid  form-group p-3 " style="margin:auto ;">
+                <div class=" container-fluid  form-group p-3 " style="margin:auto ;">
 
-        <form class="container-fluid " style="margin: auto;">
-            <div style="margin:auto ;">
-                <p class="text-center form-text font-weight-bold">Amount</p>
-                <input type="text" class="form-control" name="Amount" [(ngModel)]="data.amount">
+                    <form class="container-fluid " style="margin: auto;">
+                        <div class="form-col">
+                           <div class="form-row">
+                            <div class="col-4" >
+                                <p class=" text-left form-text font-weight-bold">Amount</p>
+                              
+                            </div>
+                            <div class="col-8">
+                                <input type="number" class="form-control" name="Amount" [(ngModel)]="data.amount"  >
+                                <p *ngIf="amountNull" class=" font-weight-bold text-center" style="border-radius: 8px; color: rgb(219, 68, 68); ">**Required**</p>
+                                
+                            </div>
+                           </div>
+
+                           <div class="form-row">
+                            <div class="col-4" >
+                                <p class="text-left form-text font-weight-bold">Description</p>
+                            </div>
+                            <div class="col-8">
+                                <input type="text" class="form-control" name="Description"
+                                [(ngModel)]="data.description"  >
+                            </div>
+                              </div>
+
+                              <div class="form-row">
+                                <div class="col-4" >
+                                    <p class="text-left form-text font-weight-bold">Category</p>
+                                </div>
+                                <div class="col-8">
+                                    <select class="form-control" name="Category" [(ngModel)]="data.category" >
+
+                                        <option>Food</option>
+                                        <option>Clothing</option>
+                                        <option>Fruits</option>
+                                        <option>Shopping</option>
+                                        <option>Transport</option>
+                                        <option>Home</option>
+                                        <option>Pet</option>
+                                        <option>Others</option>
+    
+    
+    
+                                    </select>
+                                    <p *ngIf="categoryNull" class=" font-weight-bold text-center" style="border-radius: 8px; color: rgb(219, 68, 68); ">**Required**</p>
+                                </div>
+                                  </div>
+                                  <div class="form-row">
+                                    <div class="col-4" >
+                                        <p class="text-left form-text font-weight-bold">Type</p>
+                                    </div>
+                                    <div class="col-8">
+                                        <select class="form-control" placeholder="Type" name="Type" [(ngModel)]="data.type"    >
+
+                                            <option>Income</option>
+                                            <option>Expense</option>
+        
+        
+        
+                                        </select>
+                                        <p *ngIf="typeNull" class=" font-weight-bold text-center" style="border-radius: 8px; color: rgb(219, 68, 68); ">**Required**</p>
+                                    </div>
+                                      </div>
+
+
+                                      <div class="form-row">
+                                        <div class="col-4" >
+                                            <p class="text-left form-text font-weight-bold">Date</p>
+                                        </div>
+                                        <div class="col-8">
+                                            <input type="datetime-local" class="form-control" name="Date" [(ngModel)]="data.date">
+                                        </div>
+                                          </div>
+                          
+                           
+                            <div class="mt-4 text-center">
+                                <button class="btn btn-primary w-75 font-weight-bold" type="submit"
+                                    style="height:50px; " (click)="btnClick()"             >Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+
+
             </div>
-
-            <div>
-                <p class="text-center form-text font-weight-bold mt-3">Category</p>
-                <select class="form-control" name="Category" [(ngModel)]="data.category">
-
-                <option>Food</option>
-                <option>Clothing</option>
-                <option>Fruits</option>
-                <option>Shopping</option>
-                <option>Transport</option>
-                <option>Home</option>
-                <option>Pet</option>
-                <option>Others</option>
-
-
-
-                </select>
-            </div>
-            <div>
-                <p class="text-center form-text font-weight-bold mt-3">Type</p>
-                <select class="form-control" placeholder="Type" name="Type" [(ngModel)]="data.type">
-
-                    <option>Income</option>
-                    <option>Expense</option>
-               
-
-
-                </select>
-            </div>
-            <div>
-                <p class="text-center form-text font-weight-bold mt-3">Date</p>
-                <input type="datetime-local" class="form-control" name="Date" [(ngModel)]="data.date">
-            </div>
-            <div class="mt-4 text-center">
-                <button class="btn btn-primary w-75 font-weight-bold"  type="submit" style="height:50px; " (click)="btnClick()"  >Submit</button>
-            </div>
-        </form>
         </div>
-
-
-
-    </div>
-</div>
-
-
-      
-       
